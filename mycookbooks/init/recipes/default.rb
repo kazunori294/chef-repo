@@ -34,6 +34,7 @@ execute "Setup autoreg script" do
 	chmod 777 autoreg.sh
 	sh /root/script/autoreg.sh
 	echo '*/5 * * * *  sh /root/script/autoreg.sh' >>  /var/spool/cron/root
+	echo '*/5 * * * *  cd /etc/chef-repo && git pull' >>  /var/spool/cron/root
 	service crond start
 	chkconfig crond on
     EOH
