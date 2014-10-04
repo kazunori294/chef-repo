@@ -47,6 +47,8 @@ execute "Linux Bridge" do
 	echo "BRIDGE=br0" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 	sed -i -e "s/eth0/br0/g" /etc/sysconfig/network-scripts/ifcfg-br0
 	sed -i -e "s/Ethernet/Bridge/g" /etc/sysconfig/network-scripts/ifcfg-br0
+	echo "STP=yes" >> /etc/sysconfig/network-scripts/ifcfg-br0
+	echo "DELAY=0" >> /etc/sysconfig/network-scripts/ifcfg-br0
 	service network restart
     EOH
 end
