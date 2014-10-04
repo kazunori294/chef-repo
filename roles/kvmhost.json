@@ -1,0 +1,11 @@
+{
+  "name": "kvmhost",
+  "chef_type": "role",
+  "json_class":"Chef::Role",
+  "description":"init role",
+  "run_list": [
+	"recipe[kvmhost]"
+        ]
+}
+
+
