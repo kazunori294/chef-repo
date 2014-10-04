@@ -20,8 +20,8 @@ execute "Install VMwareTools" do
     only_if "ifconfig | grep '00:50:56'"
     command <<-EOH
 	wget -O /tmp/VMwareTools-9.4.0-1252860.tar.gz  10.1.0.2/tools/VMwareTools-9.4.0-1252860.tar.gz
-        tar zxf /tmp/VMwareTools-9.4.0-1252860.tar.gz -C /tmp >> /tmp/chef.log
-        perl /tmp/vmware-tools-distrib/vmware-install.pl -d >> /tmp/chef.log
+        tar zxf /tmp/VMwareTools-9.4.0-1252860.tar.gz -C /tmp 
+        perl /tmp/vmware-tools-distrib/vmware-install.pl -d 
     EOH
 end
 
