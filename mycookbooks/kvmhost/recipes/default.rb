@@ -52,8 +52,19 @@ execute "Linux Bridge" do
 end
 
 
+execute "Setup LVM" do
+    not_if "lvdisplay | grep kvm_data"
+    command <<-EOH
+	lvcreate -n kvm_data -l 100%FREE vg_centos
+	mkdir -p /kvm/images
+	mkfs.ext4 /dev/vg_centos/kvm_data
+	mount /dev/vg_centos/kvm_data /kvm/images
+	tail -n 1 /etc/mtab >> /etc/fstab
+    EOH
+end
 
-
-
+service "libvirtd" do
+  action [:enable, :start]
+end
 
 
