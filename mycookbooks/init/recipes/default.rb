@@ -53,5 +53,6 @@ execute "Install zabbix agent" do
 
 	service zabbix-agent start
 	chkconfig zabbix-agent on
+	rpm -e zabbix-release-2.2-1.el6.noarch
     EOH
 end
